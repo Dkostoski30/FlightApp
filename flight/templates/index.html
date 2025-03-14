@@ -1,0 +1,39 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balloon Flight System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Добредојдовте во системот за менаџирање на летови со балони</h1>
+        <p class="lead text-center">Овој систем овозможува следење, уредување и креирање на летови со балони.</p>
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <h3>Функционалности:</h3>
+                <ul>
+                    <li>Преглед на сите летови</li>
+                    <li>Управување со балони, пилоти и авиокомпании</li>
+                    <li>Додавање нови летови преку лесна форма</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h3>Кориснички информации:</h3>
+                {% if user.is_authenticated %}
+                    <p>Најавен корисник: {{ user.username }}</p>
+                    <a href="/flights/" class="btn btn-primary">Види ги моите летови</a>
+                    <a href="/logout/" class="btn btn-danger">Одјави се</a>
+                {% else %}
+                    <p>Не сте најавени. <a href="/login/">Најавете се тука</a></p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
